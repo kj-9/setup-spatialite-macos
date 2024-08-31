@@ -5,7 +5,7 @@ this repo is a simple way to get started with spatialite on macOS.
 
 
 - macos installed sqlite3 is not compiled with extension (spatialite) support
-- python also needs to be installed with sqlite3 extension support (see also: [here](https://docs.datasette.io/en/stable/installation.html#a-note-about-extensions)
+- if you use spatialite from python, it needs to be built with sqlite extension support (see also: [here](https://docs.datasette.io/en/stable/installation.html#a-note-about-extensions))
 
 using brew to install sqlite3 and python3 and using these are the basis for this setup.
 

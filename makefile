@@ -9,6 +9,10 @@ VENV_ACTIVATE := $(VENV)/bin/activate
 BREW_PYTHON := /opt/homebrew/opt/python@3/libexec/bin/python 
 VENV_PYTHON := $(VENV)/bin/python
 
+ifneq ($(shell uname), Darwin)
+$(warning This makefile is intended to be run on macOS)
+endif
+
 # create venv with brew python
 $(VENV):
 	$(BREW_PYTHON) -m venv $(VENV)

@@ -1,5 +1,3 @@
-# echo 'export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"' >> ~/.zshrc
-
 # add path brew sqlite to PATH
 export PATH := /opt/homebrew/opt/sqlite/bin:$(PATH)
 
@@ -7,8 +5,8 @@ SHELL := /bin/bash
 
 VENV := .venv
 VENV_ACTIVATE := $(VENV)/bin/activate
-BREW_PYTHON := /opt/homebrew/opt/python@3/libexec/bin/python 
 
+BREW_PYTHON := /opt/homebrew/opt/python@3/libexec/bin/python 
 VENV_PYTHON := $(VENV)/bin/python
 
 # create venv with brew python

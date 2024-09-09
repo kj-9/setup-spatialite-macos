@@ -1,25 +1,38 @@
 # setup-spatialite-macos
 
-since [spatialite](https://www.gaia-gis.it/fossil/libspatialite/index) requires some setup on macOS,
-this repo is a simple way to get started with spatialite on macOS.
-
-
-- macos installed sqlite3 is not compiled with extension (spatialite) support
-- if you use spatialite from python, it needs to be built with sqlite extension support (see also: [here](https://docs.datasette.io/en/stable/installation.html#a-note-about-extensions))
-
-using brew to install sqlite3 and python3 and using these are the basis for this setup.
-
+this repo is a simple way to setup python virtual environment with [spatialite](https://www.gaia-gis.it/fossil/libspatialite/index) support on macos.
 
 ## setup
 run:
 ```
-make setup
+curl -sL https://raw.githubusercontent.com/kj-9/setup-spatialite-macos/main/scripts/setup.sh | \
+  bash -s -- .venv
 ```
 
 does:
-- run brew install sqlite and python3
-- run pip install [sqlite-utils](https://sqlite-utils.datasette.io/en/stable/), [geojson-to-sqlite](https://github.com/simonw/geojson-to-sqlite) which are optional but useful tools for working with spatialite.
+- run brew to install sqlite3 (with extension support) and spatialite-tools
+- run brew to install python3 (with sqlite3 extension support)
+- create a python virtual environment at `.venv` (you can change the path as needed)
 
+
+created venv uses brew installed python3, so it should have sqlite3 with extension support.
+after running the setup script, you need to use brew installed sqlite3, so you might want to run:
+
+```sh
+echo "export PATH=/usr/local/opt/sqlite/bin:$PATH" >> .zshrc
+```
+
+you can change venv path by changing the `.venv` in the command above.
+
+if only runs `bash -s` without the venv path, it will not create a virtual environment, but will install the required packages.
+
+
+## why use brew installed python3
+
+- macOS's system sqlite3 is not compiled with extension (like spatialite) support
+- if you use spatialite from python, it needs to be built with sqlite extension support (see also: [here](https://docs.datasette.io/en/stable/installation.html#a-note-about-extensions))
+
+using brew to install sqlite3 and python3 and using these are the basis for this setup.
 
 
 ## example usage
